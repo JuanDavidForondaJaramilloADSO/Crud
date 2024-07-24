@@ -1,3 +1,6 @@
+import correo from "./modulo.js"
+
+
 const $formulario = document.querySelector("form");
 const campos = [
   document.querySelector("#nombre"),
@@ -72,9 +75,14 @@ baja.addEventListener("keydown", function(event) {
   console.log("Nombre - Keydown:", event);
 });
 
+correo.addEventListener("blur", (event) => {
+  elemento(event, correo)
+})
+
 sube.addEventListener("keyup", function(event) {
   console.log("Nombre - Keyup:", event);
 });
+
 
 $formulario.addEventListener("submit", validar);
 
@@ -95,6 +103,9 @@ const letras = (event, elemento) => {
     event.preventDefault();
   }
 };
+
+
+
 
 validarInput(document.querySelector("#nombre"), "letra");
 validarInput(document.querySelector("#apellido"), "letra");
